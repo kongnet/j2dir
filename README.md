@@ -17,3 +17,30 @@ genrate files or directories by JSON
 **npm install j2dir**
 
 ---
+
+```
+co(function*(){
+	let inObj = {
+      'out': {
+        'www': {
+          'index.html': null,
+          'css': {
+            'c1': {
+              'WT.css': null
+            },
+            'c2': {}
+          },
+          'js': {},
+          'img': {},
+          'fonts': {}
+        },
+        'router': {},
+        'tests': {},
+        'models': {}
+      }
+    }
+    let baseDir = [__dirname]
+    let outObj = yield gen.genDir(inObj, baseDir)
+    gen.printDir(baseDir, outObj)
+})
+```
