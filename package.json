@@ -1,0 +1,64 @@
+{
+  "name": "j2dir",
+  "version": "0.0.1",
+  "description": "j2dir目录文件生成模块",
+  "main": "index.js",
+  "scripts": {
+    "push": "npm version patch && npm publish . && git push",
+    "test": "standard *.js && mocha -r co-mocha --reporter spec --timeout 100000 --recursive tests/",
+    "coveralls": "istanbul cover _mocha -- -r co-mocha --reporter spec --timeout 100000 --recursive tests/ && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kongnet/j2dir.git"
+  },
+  "author": "Kongnet <9601698@qq.com>",
+  "license": "MIT",
+  "dependencies": {
+    "meeko": "*",
+    "co-mkdirp":"*",
+    "co-fs":"*"
+  },
+  "devDependencies": {
+    "standard": "*",
+    "mocha": "*",
+    "co-mocha": "*",
+    "istanbul": "*",
+    "coveralls": "*"
+  },
+  "eslintConfig": {
+    "plugins": [
+      "html"
+    ],
+    "env": {
+      "browser": true,
+      "node": true,
+      "es6": true,
+      "mocha": true
+    },
+    "rules": {
+      "no-unused-vars": 1,
+      "camelcase": 0,
+      "curly": 2,
+      "brace-style": [
+        2,
+        "1tbs"
+      ],
+      "quotes": [
+        1,
+        "single"
+      ],
+      "semi": [
+        0,
+        "always"
+      ],
+      "space-infix-ops": 1,
+      "no-console": 1,
+      "complexity": [
+        1,
+        8
+      ]
+    },
+    "extends": "eslint:recommended"
+  }
+}
