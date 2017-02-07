@@ -3,7 +3,6 @@ const $ = require('meeko')
 const pack = require('./package.json')
 const coMkdirp = require('co-mkdirp')
 const fs = require('co-fs')
-const Config = require('./config')
 function printDir (baseDir, obj) {
   $.option.logTime = false
   $.log(`${$.c.yellow}<-- J2dir (${pack.version})${$.c.none}`)
@@ -23,8 +22,10 @@ function printDir (baseDir, obj) {
     $.log(str)
   }
 }
-function* genDir (o, path) {
+function* genDir (o, baseDir, option) {
   let outObj = {}
+  let _baseDir = baseDir.copy()
+  option = option || {}
   function* genMain (o, path) {
     path = path || [__dirname]
     let last = null
@@ -34,7 +35,7 @@ function* genDir (o, path) {
       if ($.tools.isObj(o[i])) { // 是目录
         path.push(i)
         try {
-          coMkdirp(path.join('/'))
+          yield coMkdirp(path.join('/'))
           outObj[last].status = 1
         } catch (e) {
         }
@@ -43,7 +44,8 @@ function* genDir (o, path) {
       } else {
         path.push(i)
         try {
-          let f = yield fs.readFile([__dirname, Config.templateDir, ''].join('/') + i + '.tpl')
+          $.log([_baseDir, option.templateDir || 'template', ''].join('/') + i + '.tpl')
+          let f = yield fs.readFile([_baseDir, option.templateDir || 'template', ''].join('/') + i + '.tpl')
           yield fs.writeFile(path.join('/'), f)
           outObj[i].status = 1
         } catch (e) {
@@ -57,7 +59,7 @@ function* genDir (o, path) {
       outObj[last].ifLast = 1 // 本层最后一个节点
     }
   }
-  yield genMain(o, path)
+  yield genMain(o, baseDir)
   return outObj
 }
 module.exports = {

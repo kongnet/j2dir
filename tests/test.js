@@ -6,7 +6,7 @@
 let assert = require('assert')
 let $ = require('meeko')
 const gen = require('../index')
-
+const Config = require('../config')
 describe('JSON格式转目录文件模块单元测试', function () {
   before(function* () {
     yield $.tools.wait(1000)
@@ -32,7 +32,7 @@ describe('JSON格式转目录文件模块单元测试', function () {
       }
     }
     let baseDir = [__dirname]
-    let outObj = yield gen.genDir(inObj, baseDir)
+    let outObj = yield gen.genDir(inObj, baseDir, Config)
     gen.printDir(baseDir, outObj)
     assert.strictEqual(outObj['out'].ifLast, 1)
   })
