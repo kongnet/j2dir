@@ -22,27 +22,28 @@ genrate files or directories by JSON
 
 ```
 co(function*(){
-	let inObj = {
-      'out': {
-        'www': {
-          'index.html': null,
-          'css': {
-            'c1': {
-              'WT.css': null
-            },
-            'c2': {}
+  yield waitFill(db)
+  let inObj = {
+    'out': {
+      'www': {
+        'index.html': null,
+        'css': {
+          'c1': {
+            'WT.css': null
           },
-          'js': {},
-          'img': {},
-          'fonts': {}
+          'c2': {}
         },
-        'router': {},
-        'tests': {},
-        'models': {}
-      }
+        'js': {},
+        'img': {},
+        'fonts': {}
+      },
+      'router': {},
+      'tests': {},
+      'models': {}
     }
-    let baseDir = [__dirname]
-    let outObj = yield gen.genDir(inObj, baseDir)
-    gen.printDir(baseDir, outObj)
+  }
+  let baseDir = [__dirname]
+  let outObj = yield gen.genDir(inObj, baseDir, {'templateDir': 'tools'}) //模板所在目录
+  gen.printDir(baseDir, outObj)
 })
 ```
