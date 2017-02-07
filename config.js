@@ -6,8 +6,10 @@ production 生产环境
 */
 var configObj = {
   dev: {
+    'templateDir': 'template'
   },
   test: {
+    'templateDir': 'template'
   }
 }
 configObj[undefined] = configObj['dev']

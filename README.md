@@ -5,6 +5,8 @@ genrate files or directories by JSON
 
 > 找不到模板文件时,将自动产生空字节文件
 
+> config.js 设置模板文件目录
+
 ![Build Stat](https://api.travis-ci.org/kongnet/j2dir.svg?branch=master)
 [![Coverage Status](https://coveralls.io/repos/github/kongnet/j2dir/badge.svg?branch=master)](https://coveralls.io/github/kongnet/j2dir?branch=master)
 

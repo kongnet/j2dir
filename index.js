@@ -1,9 +1,9 @@
 'use strict'
-// const Config = require('./config')
 const $ = require('meeko')
 const pack = require('./package.json')
 const coMkdirp = require('co-mkdirp')
 const fs = require('co-fs')
+const Config = require('./config')
 function printDir (baseDir, obj) {
   $.option.logTime = false
   $.log(`${$.c.yellow}<-- J2dir (${pack.version})${$.c.none}`)
@@ -43,7 +43,7 @@ function* genDir (o, path) {
       } else {
         path.push(i)
         try {
-          let f = yield fs.readFile(i)
+          let f = yield fs.readFile([__dirname, Config.templateDir, ''].join('/') + i + '.tpl')
           yield fs.writeFile(path.join('/'), f)
           outObj[i].status = 1
         } catch (e) {
@@ -64,6 +64,3 @@ module.exports = {
   genDir,
   printDir
 }
-process.on('uncaughtException', function (err) {
-  $.log('-x- Caught exception: ', err.stack)
-})
