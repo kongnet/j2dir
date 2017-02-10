@@ -1,5 +1,5 @@
 <html>
 	<body>
-		Hello World
+		{{d.body}}
 	</body>
 </html>

@@ -22,6 +22,9 @@ function printDir (baseDir, obj) {
     $.log(str)
   }
 }
+let afterCreateDir = function (i, path) {
+  $.log(i, path)
+}
 function* genDir (o, baseDir, option) {
   let outObj = {}
   let _baseDir = baseDir.copy()
@@ -32,23 +35,30 @@ function* genDir (o, baseDir, option) {
     for (let i in o) {
       last = i
       outObj[i] = {lev: path.length, status: 0}
-      if ($.tools.isObj(o[i])) { // 是目录
+      if ($.tools.isObj(o[i]) && i.split('.').length < 2) { // 是目录不能有 .
         path.push(i)
         try {
           yield coMkdirp(path.join('/'))
           outObj[last].status = 1
+          afterCreateDir(i, path)
         } catch (e) {
         }
         yield genMain(o[i], path)
         path.pop()
       } else {
         path.push(i)
-        try {
-          $.log([_baseDir, option.templateDir || 'template', ''].join('/') + i + '.tpl')
-          let f = yield fs.readFile([_baseDir, option.templateDir || 'template', ''].join('/') + i + '.tpl')
+        try { // 创建文件中发生错误
+          let f
+          if ($.tools.isNull(o[i])) {
+            f = yield fs.readFile([_baseDir, option.templateDir || 'template', ''].join('/') + i + '.tpl')
+          } else {
+            f = yield fs.readFile([_baseDir, option.templateDir || 'template', ''].join('/') + (o[i][0] || (i + '.tpl')))
+            if (o[i][1]) { f = $.tpl(f.toString()).render(o[i][1]) }
+          }
           yield fs.writeFile(path.join('/'), f)
           outObj[i].status = 1
         } catch (e) {
+          $.log(e.stack)
           yield fs.writeFile(path.join('/'), '')
         }
 
@@ -64,5 +74,6 @@ function* genDir (o, baseDir, option) {
 }
 module.exports = {
   genDir,
-  printDir
+  printDir,
+  afterCreateDir
 }
