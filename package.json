@@ -16,8 +16,7 @@
   "license": "MIT",
   "dependencies": {
     "meeko": "*",
-    "co-mkdirp": "*",
-    "co-fs": "*"
+    "mkdirp": "*"
   },
   "devDependencies": {
     "standard": "*",
