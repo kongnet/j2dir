@@ -32,7 +32,7 @@ function printDir (baseDir, obj) {
   }
 }
 let afterCreateDir = function (i, path) {
-  $.log(i, path)
+  // $.log(i, path)
 }
 function genMain (o, baseDir, option) {
   let outObj = {}
@@ -43,7 +43,7 @@ function genMain (o, baseDir, option) {
     let last = null
     for (let i in o) {
       last = i + '#' + path.length // 组成唯一标识
-      outObj[last] = {lev: path.length, status: 0}
+      outObj[last] = { lev: path.length, status: 0 }
       outObj[last].desc = (o[i] || [])[2] || ''
       if ($.tools.isObj(o[i]) && i.split('.').length < 2) { // 是目录不能有 .
         path.push(i)
