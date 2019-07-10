@@ -5,7 +5,7 @@ const coMkdirp = require('mkdirp')
 const fs = require('fs')
 function printDir (baseDir, obj) {
   $.option.logTime = false
-  $.log(`${$.c.yellow}<-- J2dir (${pack.version})${$.c.none}`)
+  $.log(`${$.c.y(`<-- J2dir ${pack.version}`)}`)
   $.log(baseDir[0] || __dirname)
   for (let i in obj) {
     let ary = i.split('#')
@@ -26,7 +26,7 @@ function printDir (baseDir, obj) {
     let preS1 = (lev > 1 ? '   ' : '') + '│  '.times(lev - 2 - blankCount) + '  '.times(blankCount)
     let s1 = (ifLast ? '└─ ' : '├─ ') + (obj[i].ifDir ? $.c.m(newI) : newI)
     let diffLen = s1.length - i.length - preS1.length
-    let s2 = (obj[i].status ? $.c.green + ' success' + $.c.none : $.c.red + ' fail' + $.c.none)
+    let s2 = (obj[i].status ? $.c.g(' success') : $.c.r(' fail'))
     let str = preS1 + s1.fillStr(' ', 30 + diffLen) + s2.fillStr(' ', 25) + obj[i].desc
     $.log(str)
   }
