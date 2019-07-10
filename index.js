@@ -3,6 +3,8 @@ const $ = require('meeko')
 const pack = require('./package.json')
 const coMkdirp = require('mkdirp')
 const fs = require('fs')
+const Path = require('path')
+
 function printDir (baseDir, obj) {
   $.option.logTime = false
   $.log(`${$.c.yellow}<-- J2dir (${pack.version})${$.c.none}`)
@@ -61,9 +63,9 @@ function genMain (o, baseDir, option) {
         try { // 创建文件中发生错误
           let f
           if ($.tools.isNull(o[i])) {
-            f = fs.readFileSync([_baseDir, option.templateDir || 'template', ''].join('/') + i + '.tpl')
+            f = fs.readFileSync(Path.resolve(_baseDir, option.templateDir || 'template') + '/' + i + '.tpl')
           } else {
-            f = fs.readFileSync([_baseDir, option.templateDir || 'template', ''].join('/') + (o[i][0] || (i + '.tpl')))
+            f = fs.readFileSync(Path.resolve(_baseDir, option.templateDir || 'template') + '/' + (o[i][0] || (i + '.tpl')))
             if (o[i][1]) { f = $.tpl(f.toString()).render(o[i][1]) }
           }
           fs.writeFileSync(path.join('/'), f)
