@@ -23,7 +23,7 @@ describe('JSON格式转目录文件模块单元测试', function () {
         },
         'ws_router': {},
         'www': {
-          'index.html': ['index.html.tpl', {body: 'Hello World'}, '静态站点主页'],
+          'index.html': ['index.html.tpl', { body: 'Hello World' }, '静态站点主页'],
           'css': {
             'WT.css': [null, null, 'Meeko框架核心CSS'],
             'WT.white.css': [null, null, 'Meeko框架项目CSS']
@@ -39,7 +39,7 @@ describe('JSON格式转目录文件模块单元测试', function () {
           'zzz_zend.js': [null, null, '测试结束跳出文件']
         },
         'sql': {},
-        'README.md': [null, {proName: proName}, '说明文档'],
+        'README.md': [null, { proName: proName }, '说明文档'],
         'nodemon.json': [null, null, '开发环境AutoReload配置文件'],
         'pm2_v4.json': [null, null, 'Test环境PM2运行文件'],
         'pm2_v5.json': [null, null, 'PreRelease环境PM2运行文件'],

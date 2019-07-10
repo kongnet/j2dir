@@ -4,6 +4,7 @@
   "description": "j2dir目录文件生成模块",
   "main": "index.js",
   "scripts": {
+    "cz": "git add . && git status && git cz && npm version patch && npm publish .",
     "push": "npm version patch && npm publish . && git push",
     "test": "standard *.js && mocha -r co-mocha --reporter spec --timeout 100000 tests/",
     "coveralls": "istanbul cover _mocha -- -r co-mocha --reporter spec --timeout 100000 --recursive tests/ && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage"
@@ -15,20 +16,22 @@
   "author": "Kongnet <9601698@qq.com>",
   "license": "MIT",
   "dependencies": {
-    "meeko": "*",
+    "meeko": "^1.7.83",
     "mkdirp": "*"
   },
   "devDependencies": {
-    "standard": "*",
-    "mocha": "*",
+    "babel-eslint": "^10.0.2",
+    "cc-jt": "^0.1.2",
     "co-mocha": "*",
+    "coveralls": "*",
+    "cz-jt": "^0.1.7",
+    "eslint": "^6.0.1",
     "istanbul": "*",
-    "coveralls": "*"
+    "mocha": "*",
+    "standard": "*"
   },
   "eslintConfig": {
-    "plugins": [
-      "html"
-    ],
+    "plugins": [],
     "env": {
       "browser": true,
       "node": true,
@@ -59,5 +62,10 @@
       ]
     },
     "extends": "eslint:recommended"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-jt"
+    }
   }
 }

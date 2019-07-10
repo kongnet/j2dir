@@ -53,6 +53,7 @@ function genMain (o, baseDir, option) {
           outObj[last].ifDir = 1
           afterCreateDir(i, path)
         } catch (e) {
+          console.error(e.stack)
         }
         genDirFile(o[i], path)
         path.pop()
