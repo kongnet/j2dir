@@ -38,7 +38,7 @@ let afterCreateDir = function (i, path) {
 }
 function genMain (o, baseDir, option) {
   let outObj = {}
-  let _baseDir = baseDir.copy()
+  let _baseDir = baseDir.copy()[0]
   option = option || {}
   function genDirFile (o, path) {
     path = path || [__dirname]
