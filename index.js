@@ -84,6 +84,8 @@ function genMain (o, baseDir, option) {
             )
             if (o[i][1]) {
               let { open, close } = option
+              open = open || '{{'
+              close = close || '}}'
               $.tpl.config({ open, close })
               f = $.tpl(f.toString()).render(o[i][1])
             }
