@@ -106,9 +106,9 @@ acorn-jsx@^5.0.0:
   integrity sha512-HJ7CfNHrfJLlNTzIEUTj43LNWGkqpRLxm3YjAlcD0ACydk9XynzYsCBHxut+iqt+1aBXkx9UP/w/ZqMr13XIzg==
 
 acorn@^6.0.2, acorn@^6.0.7:
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.1.1.tgz#7d25ae05bb8ad1f9b699108e1094ecd7884adc1f"
-  integrity sha512-jPTiwtOxaHNaAPg/dmrJ/beuzLRnXtB0kQPQ8JpotKJgTB6rX6c8mlf315941pyjBSaPg8NHXS9fhP4u17DpGA==
+  version "6.4.1"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.4.1.tgz#531e58ba3f51b9dacb9a6646ca4debf5b14ca474"
+  integrity sha512-ZVA9k326Nwrj3Cj9jlh3wGFutC2ZornPNARZwsNYqQYgN0EsV2d53w5RN/co65Ohn4sUAUtb1rSUAOD6XN9idA==
 
 ajv-keywords@^3.0.0:
   version "3.4.0"
@@ -1633,10 +1633,10 @@ map-age-cleaner@^0.1.1:
   dependencies:
     p-defer "^1.0.0"
 
-meeko@^1.7.83:
-  version "1.7.83"
-  resolved "https://registry.yarnpkg.com/meeko/-/meeko-1.7.83.tgz#50634444c38a13addf6c2c5038f69545dafb0e18"
-  integrity sha512-aMVwhS8z3dC00Iz5mqnHYRfGVLFDuedby1tIV5bI40+6n55m8XWvvEVwOLg6PtqQUiDJ/zwt4jM1yBL+bv3XWw==
+meeko@*:
+  version "1.8.122"
+  resolved "https://registry.yarnpkg.com/meeko/-/meeko-1.8.122.tgz#7db1721a7fc41ddf26c8648c0ec6ebafaae61f4e"
+  integrity sha512-v2kpjv3Fp3CKJVQ+lWU5GnOiI3msQQplAkPKb9jzA4tGibalWgXMtdDjFttawXyizo3VzpdEXgiyOdhsYOWTKg==
 
 mem@^4.0.0:
   version "4.3.0"
