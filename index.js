@@ -25,11 +25,15 @@ function printDir (baseDir, obj) {
         break
       }
     }
-    let preS1 = (lev > 1 ? '   ' : '') + '│  '.times(lev - 2 - blankCount) + '  '.times(blankCount)
+    let preS1 =
+      (lev > 1 ? '   ' : '') +
+      '│  '.times(lev - 2 - blankCount) +
+      '  '.times(blankCount)
     let s1 = (ifLast ? '└─ ' : '├─ ') + (obj[i].ifDir ? $.c.m(newI) : newI)
     let diffLen = s1.length - i.length - preS1.length
-    let s2 = (obj[i].status ? $.c.g(' success') : $.c.r(' fail'))
-    let str = preS1 + s1.fillStr(' ', 30 + diffLen) + s2.fillStr(' ', 25) + obj[i].desc
+    let s2 = obj[i].status ? $.c.g(' success') : $.c.r(' fail')
+    let str =
+      preS1 + s1.fillStr(' ', 30 + diffLen) + s2.fillStr(' ', 25) + obj[i].desc
     $.log(str)
   }
 }
@@ -47,7 +51,8 @@ function genMain (o, baseDir, option) {
       last = i + '#' + path.length // 组成唯一标识
       outObj[last] = { lev: path.length, status: 0 }
       outObj[last].desc = (o[i] || [])[2] || ''
-      if ($.tools.isObj(o[i]) && i.split('.').length < 2) { // 是目录不能有 .
+      if ($.tools.isObj(o[i]) && i.split('.').length < 2) {
+        // 是目录不能有 .
         path.push(i)
         try {
           coMkdirp.sync(path.join('/'))
@@ -61,13 +66,27 @@ function genMain (o, baseDir, option) {
         path.pop()
       } else {
         path.push(i)
-        try { // 创建文件中发生错误
+        try {
+          // 创建文件中发生错误
           let f
           if ($.tools.isNull(o[i])) {
-            f = fs.readFileSync(Path.resolve(_baseDir, option.templateDir || 'template') + '/' + i + '.tpl')
+            f = fs.readFileSync(
+              Path.resolve(_baseDir, option.templateDir || 'template') +
+                '/' +
+                i +
+                '.tpl'
+            )
           } else {
-            f = fs.readFileSync(Path.resolve(_baseDir, option.templateDir || 'template') + '/' + (o[i][0] || (i + '.tpl')))
-            if (o[i][1]) { f = $.tpl(f.toString()).render(o[i][1]) }
+            f = fs.readFileSync(
+              Path.resolve(_baseDir, option.templateDir || 'template') +
+                '/' +
+                (o[i][0] || i + '.tpl')
+            )
+            if (o[i][1]) {
+              let { open, close } = option
+              $.tpl.config({ open, close })
+              f = $.tpl(f.toString()).render(o[i][1])
+            }
           }
           fs.writeFileSync(path.join('/'), f)
           outObj[last].status = 1
