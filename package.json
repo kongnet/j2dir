@@ -1,6 +1,6 @@
 {
   "name": "j2dir",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "j2dir目录文件生成模块",
   "main": "index.js",
   "scripts": {
