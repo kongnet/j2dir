@@ -1603,9 +1603,9 @@ locate-path@^3.0.0:
     path-exists "^3.0.0"
 
 lodash@^4.17.11, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.3.0:
-  version "4.17.11"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
-  integrity sha512-cQKh8igo5QUhZ7lg38DYWAxMvjSAKG0A8wGSVimP07SIUEK2UO+arSRKbRZWtelMtN5V0Hkwh5ryOto/SshYIg==
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
 log-driver@^1.2.7:
   version "1.2.7"
@@ -1633,10 +1633,10 @@ map-age-cleaner@^0.1.1:
   dependencies:
     p-defer "^1.0.0"
 
-meeko@^1.7.83:
-  version "1.7.83"
-  resolved "https://registry.yarnpkg.com/meeko/-/meeko-1.7.83.tgz#50634444c38a13addf6c2c5038f69545dafb0e18"
-  integrity sha512-aMVwhS8z3dC00Iz5mqnHYRfGVLFDuedby1tIV5bI40+6n55m8XWvvEVwOLg6PtqQUiDJ/zwt4jM1yBL+bv3XWw==
+meeko@*:
+  version "1.8.158"
+  resolved "https://registry.yarnpkg.com/meeko/-/meeko-1.8.158.tgz#01238f38ced86acaeb0e2fde3e4bc4aee047a912"
+  integrity sha512-CEb/oEmZlNMpA/selnOmq/3Bo9uYH6uu0JGXeZkwl5SWh8ifYA9N0v35RGfcvnav5jFgJsJZbsf+/qJuIhhWOQ==
 
 mem@^4.0.0:
   version "4.3.0"
