@@ -1633,10 +1633,10 @@ map-age-cleaner@^0.1.1:
   dependencies:
     p-defer "^1.0.0"
 
-meeko@^1.7.83:
-  version "1.7.83"
-  resolved "https://registry.yarnpkg.com/meeko/-/meeko-1.7.83.tgz#50634444c38a13addf6c2c5038f69545dafb0e18"
-  integrity sha512-aMVwhS8z3dC00Iz5mqnHYRfGVLFDuedby1tIV5bI40+6n55m8XWvvEVwOLg6PtqQUiDJ/zwt4jM1yBL+bv3XWw==
+meeko@*:
+  version "1.8.166"
+  resolved "https://registry.yarnpkg.com/meeko/-/meeko-1.8.166.tgz#655aab5703d3bb485d6126ba0e70145bda541ed9"
+  integrity sha512-h6EqFsLWps0BupwyeuB1HcBy9Y0Hj1EmWhQpw7bnWyJso5+ZunmDXh1XAxfEflbRjBLJqgvE6oIk4Vo9WmBNxA==
 
 mem@^4.0.0:
   version "4.3.0"
@@ -1988,9 +1988,9 @@ path-key@^2.0.0, path-key@^2.0.1:
   integrity sha1-QRyttXTFoUDTpLGRDUDYDMn0C0A=
 
 path-parse@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.6.tgz#d62dbb5679405d72c4737ec58600e9ddcf06d24c"
-  integrity sha512-GSmOT2EbHrINBf9SR7CDELwlJ8AENk3Qn7OikK4nFYAu3Ote2+JYNVvkpAEQm3/TLNEJFD/xZJjzyxg3KBWOzw==
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.7.tgz#fbc114b60ca42b30d9daf5858e4bd68bbedb6735"
+  integrity sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==
 
 path-type@^2.0.0:
   version "2.0.0"
