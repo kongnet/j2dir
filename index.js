@@ -51,7 +51,7 @@ function genMain (o, baseDir, option) {
       last = i + '#' + path.length // 组成唯一标识
       outObj[last] = { lev: path.length, status: 0 }
       outObj[last].desc = (o[i] || [])[2] || ''
-      if ($.tools.isObj(o[i]) && i.split('.').length < 2) {
+      if ($.tools.isObj(o[i]) && !Array.isArray(o[i])) {
         // 是目录不能有 .
         path.push(i)
         try {
@@ -60,7 +60,7 @@ function genMain (o, baseDir, option) {
           outObj[last].ifDir = 1
           afterCreateDir(i, path)
         } catch (e) {
-          console.error(e.stack)
+          $.err(e.stack)
         }
         genDirFile(o[i], path)
         path.pop()
